@@ -1,3 +1,10 @@
+/* ============================================================
+   Hyper - Instituto de la Visión
+   Hoja de estilos refactorizada
+   - Paleta centralizada en variables (:root)
+   - Media queries unificadas (ver final del archivo)
+   ============================================================ */
+
 /* ===== Reset base ===== */
 *,
 *::before,
@@ -39,6 +46,16 @@ ul {
   list-style: none;
 }
 
+/* ===== Paleta / Variables de marca ===== */
+:root {
+  --azul: #2B57A8;          /* azul principal */
+  --azul-claro: #9BBCFF;
+  --celeste: #92c7f8;
+  --fondo-oscuro: #120A1D;  /* fondo de secciones */
+  --amarillo: #F4C01B;      /* unifica los antiguos #F4C01B / #F4C01A */
+  --lila-texto: #C1AED3;
+}
+
 /* ===== Layout general ===== */
 main {
   flex: 1;
@@ -58,7 +75,7 @@ section {
 .ticker {
   width: 100%;
   overflow: hidden;
-  background: #2B57A8;
+  background: var(--azul);
   color: #ffffff;
 }
 
@@ -74,7 +91,8 @@ section {
 }
 
 .nav {
-  position: relative;                 /* ancla para el panel mobile */
+  position: relative;
+  /* ancla para el panel mobile */
   width: min(100% - 2rem, 1100px);
   margin-inline: auto;
   display: flex;
@@ -84,8 +102,14 @@ section {
   text-transform: uppercase;
 }
 
-.nav-logo { display: flex; gap: 10px; }
-.nav-logo img { height: 50px; }
+.nav-logo {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-logo img {
+  height: 50px;
+}
 
 /* Menú (links + botón juntos a la derecha en desktop) */
 .nav-menu {
@@ -93,6 +117,7 @@ section {
   align-items: center;
   gap: 2.5rem;
 }
+
 .nav-links {
   display: flex;
   gap: 2.5rem;
@@ -104,6 +129,7 @@ section {
   padding-bottom: 4px;
   transition: color 0.3s ease;
 }
+
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -111,33 +137,50 @@ section {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #2B57A8;
+  background-color: var(--azul);
   transition: width 0.3s ease;
 }
-.nav-links a:hover { color: #2B57A8; }
-.nav-links a:hover::after { width: 100%; }
+
+.nav-links a:hover {
+  color: var(--azul);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
 
 .nav-activo {
   font-weight: bold;
-  color: #2B57A8;
+  color: var(--azul);
 }
-.nav-activo::after { width: 100%; }   /* el activo ya viene subrayado */
+
+.nav-activo::after {
+  width: 100%;
+}
+
+/* el activo ya viene subrayado */
 
 /* --- Efecto global del nav: atenúa los demás al hover --- */
-.nav-links:hover a { opacity: 0.5; }
-.nav-links:hover a:hover { opacity: 1; }
+.nav-links:hover a {
+  opacity: 0.5;
+}
+
+.nav-links:hover a:hover {
+  opacity: 1;
+}
 
 /* --- Botón MÁS INFO: brillo que cruza + elevación --- */
 .nav-btn {
   color: #fff;
-  background-color: #2B57A8;
+  background-color: var(--azul);
   padding: 5px 35px;
   border-radius: 50px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease,
-              background-color 0.3s ease, color 0.3s ease;
+    background-color 0.3s ease, color 0.3s ease;
 }
+
 .nav-btn::before {
   content: "";
   position: absolute;
@@ -145,13 +188,17 @@ section {
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
   transform: skewX(-20deg);
   transition: left 0.5s ease;
 }
-.nav-btn:hover::before { left: 125%; }
+
+.nav-btn:hover::before {
+  left: 125%;
+}
+
 .nav-btn:hover {
-  background-color: #9BBCFF;
+  background-color: var(--azul-claro);
   color: #315DAC;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(43, 87, 168, 0.4);
@@ -170,12 +217,13 @@ section {
   border: none;
   cursor: pointer;
 }
+
 .nav-toggle span {
   display: block;
   width: 26px;
   height: 3px;
   border-radius: 2px;
-  background-color: #2B57A8;
+  background-color: var(--azul);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -188,7 +236,7 @@ section {
   margin: 0;
   padding: 4rem 2.5rem;
   /* espacio en los lados (por fuera) */
-  background-color: #120A1D;
+  background-color: var(--fondo-oscuro);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -369,7 +417,7 @@ section {
 
 .icon-tag1 {
   font-size: 1.5rem;
-  color: #F4C01B;
+  color: var(--amarillo);
 }
 
 .info-tag1 {
@@ -383,7 +431,7 @@ section {
   font-family: "Anybody", sans-serif;
   font-size: 1.1rem;
   font-weight: bold;
-  color: #F4C01B;
+  color: var(--amarillo);
 }
 
 .img-tag2 {
@@ -415,7 +463,7 @@ section {
 
 .icon-tag2 {
   font-size: 1.5rem;
-  color: #F4C01B;
+  color: var(--amarillo);
 }
 
 .info-tag2 {
@@ -428,14 +476,14 @@ section {
   font-family: "Anybody", sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  color: #F4C01B;
+  color: var(--amarillo);
 }
 
 /* EMPEZANDO CARDS VITALITY ----------------------- */
 
 .flex-vitality {
   width: 100%;
-  background-color: #120A1D;
+  background-color: var(--fondo-oscuro);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -459,7 +507,7 @@ section {
 
 .card {
   background-color: #152866;
-  color: #92c7f8;
+  color: var(--celeste);
   padding: 1.5rem;
   border: 1px solid #3e79e6;
   border-radius: 25px;
@@ -514,11 +562,11 @@ section {
 
 .icon3 {
   font-size: 2rem;
-  color: #F4C01B;
+  color: var(--amarillo);
 }
 
 .title-card3 {
-  color: #F4C01B;
+  color: var(--amarillo);
 }
 
 .p-card {
@@ -574,7 +622,7 @@ section {
   height: 44px;
   border-radius: 50%;
   border: 4px solid #d7dbe2;
-  border-top-color: #2B57A8;
+  border-top-color: var(--azul);
   /* tu azul */
   animation: girar 0.9s linear infinite;
 }
@@ -635,24 +683,24 @@ section {
 }
 
 .info-card--light p i {
-  background: #2B57A8;
+  background: var(--azul);
   color: #fff;
 }
 
 .info-card--dark {
-  background: #2B57A8;
+  background: var(--azul);
   color: #fff;
 }
 
 .info-card--dark p i {
   background: #a9c9f5;
-  color: #2B57A8;
+  color: var(--azul);
 }
 
 /* EMPEZANDO CELLULAR RECHARGE ------------------------- */
 
 .flex-recharge {
-  background-color: #120A1D;
+  background-color: var(--fondo-oscuro);
   color: #fff;
   padding: 3em 0 5em 0;
 }
@@ -670,14 +718,14 @@ section {
 
 .p-recharge {
   font-size: 1.05rem;
-  color: #C1AED3;
+  color: var(--lila-texto);
   line-height: 1.1em;
 }
 
 .plus-recharge {
   font-family: "Anybody", sans-serif;
   text-align: end;
-  color: #F4C01B;
+  color: var(--amarillo);
 }
 
 .grid-recharge {
@@ -696,7 +744,7 @@ section {
 
 .recharge-div1 {
   border-radius: 30px;
-  border: 1px solid #92c7f8;
+  border: 1px solid var(--celeste);
   grid-area: 1 / 1 / 7 / 5;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
     url("./imgs/machine.png");
@@ -767,48 +815,37 @@ section {
 }
 
 .recharge-div2-text {
-  color: #C1AED3;
+  color: var(--lila-texto);
+}
+
+.recharge-div3,
+.recharge-div4 {
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #C9B7DA;
 }
 
 .recharge-div3 {
-  border-radius: 30px;
   grid-area: 4 / 5 / 7 / 7;
   background-color: #2A0C4F;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #C9B7DA;
-}
-
-.recharge-div3 i {
-  font-size: 2rem;
-  color: #F4C01A;
-  margin-bottom: 0.25em;
-}
-
-.recharge-div3 h3 {
-  font-family: "Anybody", sans-serif;
 }
 
 .recharge-div4 {
-  border-radius: 30px;
-
   grid-area: 4 / 7 / 7 / 9;
   background-color: #1d0b33;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #C9B7DA;
 }
 
+.recharge-div3 i,
 .recharge-div4 i {
   font-size: 2rem;
-  color: #F4C01A;
+  color: var(--amarillo);
   margin-bottom: 0.25em;
 }
 
+.recharge-div3 h3,
 .recharge-div4 h3 {
   font-family: "Anybody", sans-serif;
 }
@@ -816,7 +853,7 @@ section {
 /* ===================== PEAK PERFORMANCE ==================*/
 
 .flex-performance {
-  background-color: #120A1D;
+  background-color: var(--fondo-oscuro);
   color: #fff;
   padding: 2rem 1rem 6rem 1rem;
 
@@ -854,7 +891,6 @@ section {
   gap: 3rem;
 }
 
-.left-performance {}
 
 .list-performance {
   display: flex;
@@ -885,11 +921,10 @@ section {
 }
 
 .li-text p {
-  color: #C1AED3;
+  color: var(--lila-texto);
   line-height: 1.1em;
 }
 
-.right-performance {}
 
 .img-performance {
   border: 9px solid #290B4E;
@@ -914,7 +949,7 @@ section {
   min-height: 150px;
   background-color: #290b4ed5;
   border-radius: 100px;
-  border: 5px solid #F4C01A;
+  border: 5px solid var(--amarillo);
   font-family: "Anybody", sans-serif;
 }
 
@@ -938,7 +973,7 @@ section {
   display: flex;
   flex-direction: column;
 
-  background-image: linear-gradient(#120A1D, #2B57A8);
+  background-image: linear-gradient(var(--fondo-oscuro), var(--azul));
   color: #fff;
 
   padding: 4rem;
@@ -959,7 +994,6 @@ section {
 
 }
 
-.footer-top-l img {}
 
 .top-l-links {
   display: flex;
@@ -1017,56 +1051,32 @@ section {
   height: 100px;
 }
 
-/* =================== Responsive ========================================= */
-@media (max-width: 575px) {
+/* ============================================================
+   RESPONSIVE
+   Un único breakpoint de tablet/mobile (<=991px) con el layout
+   compartido, y otro solo con los ajustes finos de teléfono (<=575px).
+   ============================================================ */
 
-  /* ========= NAV ============ */
-  .nav-logo img { height: 40px; }
-  .nav-links a { padding: 0.85rem 1.2rem; }
-  .nav-menu { top: calc(100% + 0.3rem); }
-
-  /* ================ PEAK PERFORMANCE ======================= */
-  .img-performance {
-  width: 350px;
-}
-
-.img-performance img {
-  border-radius: 20px;
-}
-
-.img-performance .tag-performance {
-  bottom: -65px;
-  right: -15px;
-  min-width: 125px;
-  min-height: 125px;
-}
-
-  /* ============================== Footer =============================== */
-
-  .site-footer {
-    padding: 1rem;
-  }
-
-  .footer-top-r {
-    flex-direction: column;
-  }
-
-}
-
-/* =================== Responsive ========================================= */
-/*@media (min-width: 576px) and (max-width: 767px) {}*/
-
-
-/* =================== Responsive ========================================= */
-/*@media (min-width: 768px) and (max-width: 991px) */
+/* ---------- Tablet y mobile ---------- */
 @media (max-width: 991px) {
 
-  .nav-toggle { display: flex; }        /* aparece el hamburger */
+  /* --- Nav: aparece la hamburguesa (antes fallaba entre 576-991px) --- */
+  .nav-toggle {
+    display: flex;
+  }
 
-  /* Barras → X cuando está abierto */
-  .nav.abierto .nav-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  .nav.abierto .nav-toggle span:nth-child(2) { opacity: 0; }
-  .nav.abierto .nav-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  /* Barras -> X cuando el menú está abierto */
+  .nav.abierto .nav-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav.abierto .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav.abierto .nav-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 
   /* El menú se convierte en panel desplegable */
   .nav-menu {
@@ -1088,7 +1098,8 @@ section {
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 100;
   }
-  .nav.abierto .nav-menu {              /* estado abierto */
+
+  .nav.abierto .nav-menu {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
@@ -1099,14 +1110,24 @@ section {
     gap: 0;
     width: 100%;
   }
-  .nav-links li { width: 100%; }
+
+  .nav-links li {
+    width: 100%;
+  }
+
   .nav-links a {
     display: block;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid #eee;
   }
-  .nav-links a::after { display: none; }   /* sin subrayado animado en mobile */
-  .nav-links:hover a { opacity: 1; }       /* sin atenuado en mobile */
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-links:hover a {
+    opacity: 1;
+  }
 
   .nav-btn {
     margin: 0.75rem 1.5rem 0.5rem;
@@ -1114,21 +1135,15 @@ section {
     text-align: center;
   }
 
-  /* EMPEZANDO HOME */
-
+  /* --- Home --- */
   .flex-home {
     flex-direction: column;
     margin: 0;
-    padding: 3rem 1.5rem 3rem 1.5rem;
-    /* espacio en los lados (por fuera) */
+    padding: 3rem 1.5rem;
     gap: 4rem;
     background-image:
       radial-gradient(circle at 10% 40%, rgba(153, 1, 255, 0.4), transparent 35%),
       radial-gradient(circle at 90% 70%, rgba(153, 1, 255, 0.4), transparent 30%);
-  }
-
-  .info-home {
-    gap: 20px;
   }
 
   .tag-info {
@@ -1154,16 +1169,19 @@ section {
     width: 350px;
   }
 
-  .img-tag1 {
+  .img-tag1,
+  .img-tag2 {
     gap: 0.5rem;
     padding: 5px 10px;
   }
 
-  .icon-tag1 {
+  .icon-tag1,
+  .icon-tag2 {
     font-size: 1rem;
   }
 
-  .info-tag1 {
+  .info-tag1,
+  .info-tag2 {
     font-size: 0.5rem;
     line-height: 0.8rem;
   }
@@ -1172,26 +1190,11 @@ section {
     font-size: 1.1rem;
   }
 
-  .img-tag2 {
-    gap: 0.5rem;
-    padding: 5px 10px;
-  }
-
-  .icon-tag2 {
-    font-size: 1rem;
-  }
-
-  .info-tag2 {
-    font-size: 0.5rem;
-    line-height: 0.8rem;
-  }
-
   .b-info-tag2 {
     font-size: 0.9rem;
   }
 
-  /* EMPEZANDO CARDS VITALITY */
-
+  /* --- Vitality --- */
   .flex-vitality {
     padding: 2rem 1rem;
   }
@@ -1205,14 +1208,14 @@ section {
     gap: 0.75rem;
   }
 
-  /* POST INSTAGRAM INFO */
+  /* --- Instagram --- */
   .flex-instagram {
     padding: 1em;
     gap: 5em;
     flex-direction: column;
   }
 
-  /* EMPEZANDO CELLULAR RECHARGE */
+  /* --- Cellular Recharge --- */
   .head-recharge {
     padding: 1rem 1rem 3rem 1rem;
   }
@@ -1258,34 +1261,19 @@ section {
   }
 
   .recharge-div3 {
-    border-radius: 30px;
     grid-area: 6 / 1 / 8 / 3;
   }
 
-  .recharge-div3 i {
+  .recharge-div3 i,
+  .recharge-div4 i {
     font-size: 2rem;
   }
 
   .recharge-div4 {
-    border-radius: 30px;
     grid-area: 6 / 3 / 8 / 5;
-    background-color: #1d0b33;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #C9B7DA;
-
   }
 
-  .recharge-div4 i {
-    font-size: 2rem;
-
-    color: #F4C01A;
-  }
-
-  /* ========== peak PERFORMANCE ==============*/
-
+  /* --- Peak Performance --- */
   .flex-performance {
     padding: 0rem 1rem 6rem 1rem;
   }
@@ -1296,18 +1284,41 @@ section {
     gap: 3rem;
   }
 
-  /* ============================== Footer =============================== */
-
+  /* --- Footer --- */
   .site-footer {
     padding: 2rem;
   }
 
   .footer-top {
-    display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    padding: 2rem 1rem 2rem 1rem;
+    padding: 2rem 1rem;
     gap: 2rem;
   }
 
+  .footer-top-r {
+    flex-direction: column;
+  }
+}
+
+/* ---------- Ajustes finos solo para teléfonos ---------- */
+@media (max-width: 575px) {
+
+  .nav-logo img {
+    height: 40px;
+  }
+
+  .img-performance {
+    width: 350px;
+  }
+
+  .img-performance .tag-performance {
+    bottom: -65px;
+    right: -15px;
+    min-width: 125px;
+    min-height: 125px;
+  }
+
+  .site-footer {
+    padding: 1rem;
+  }
 }
