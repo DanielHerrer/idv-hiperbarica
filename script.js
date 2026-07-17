@@ -1,6 +1,50 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Web cargada ✅");
 
+  // Script NAVEGADOR nav
+  const nav = document.querySelector(".nav");
+const toggle = nav.querySelector(".nav-toggle");
+
+toggle.addEventListener("click", () => {
+  const abierto = nav.classList.toggle("abierto");
+  toggle.setAttribute("aria-expanded", abierto);
+  toggle.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+});
+
+// Cerrar al tocar un link
+nav.querySelectorAll(".nav-menu a").forEach((a) => {
+  a.addEventListener("click", () => {
+    nav.classList.remove("abierto");
+    toggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+// Cerrar al tocar fuera del menú
+document.addEventListener("click", (e) => {
+  if (!nav.contains(e.target)) nav.classList.remove("abierto");
+});
+
+  // Script post instagram
+  document.querySelectorAll(".ig-embed").forEach((wrap) => {
+    const loader = wrap.querySelector(".ig-loader");
+    if (!loader) return;
+    const ocultar = () => loader.classList.add("oculto");
+
+    // Vigilo el contenedor: cuando Instagram inserta su <iframe>, oculto la carga
+    const obs = new MutationObserver(() => {
+      const iframe = wrap.querySelector("iframe");
+      if (iframe) {
+        iframe.addEventListener("load", ocultar);
+        obs.disconnect();
+      }
+    });
+    obs.observe(wrap, { childList: true, subtree: true });
+
+    // Red de seguridad por si el evento "load" no dispara
+    setTimeout(ocultar, 6000);
+  });
+
+  // Ticker de novedades arriba
   function initTicker(ticker, speed = 70) { // píxeles por segundo
     const track = ticker.querySelector(".ticker-track");
     const contenido = track.innerHTML; // lo que querés repetir
