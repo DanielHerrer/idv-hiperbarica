@@ -1018,9 +1018,48 @@ section {
 }
 
 /* =================== Responsive ========================================= */
-/* Estilos para tablets grandes */
+@media (max-width: 575px) {
+
+  /* ========= NAV ============ */
+  .nav-logo img { height: 40px; }
+  .nav-links a { padding: 0.85rem 1.2rem; }
+  .nav-menu { top: calc(100% + 0.3rem); }
+
+  /* ================ PEAK PERFORMANCE ======================= */
+  .img-performance {
+  width: 350px;
+}
+
+.img-performance img {
+  border-radius: 20px;
+}
+
+.img-performance .tag-performance {
+  bottom: -65px;
+  right: -15px;
+  min-width: 125px;
+  min-height: 125px;
+}
+
+  /* ============================== Footer =============================== */
+
+  .site-footer {
+    padding: 1rem;
+  }
+
+  .footer-top-r {
+    flex-direction: column;
+  }
+
+}
+
+/* =================== Responsive ========================================= */
+/*@media (min-width: 576px) and (max-width: 767px) {}*/
+
+
+/* =================== Responsive ========================================= */
 /*@media (min-width: 768px) and (max-width: 991px) */
-@media (min-width: 576px) and (max-width: 991px) {
+@media (max-width: 991px) {
 
   .nav-toggle { display: flex; }        /* aparece el hamburger */
 
@@ -1269,45 +1308,6 @@ section {
     flex-direction: column;
     padding: 2rem 1rem 2rem 1rem;
     gap: 2rem;
-  }
-
-}
-
-/* =================== Responsive ========================================= */
-/*@media (min-width: 576px) and (max-width: 767px) {}*/
-
-/* =================== Responsive ========================================= */
-@media (max-width: 575px) {
-
-  /* ========= NAV ============ */
-  .nav-logo img { height: 40px; }
-  .nav-links a { padding: 0.85rem 1.2rem; }
-  .nav-menu { top: calc(100% + 0.3rem); }
-
-  /* ================ PEAK PERFORMANCE ======================= */
-  .img-performance {
-  width: 350px;
-}
-
-.img-performance img {
-  border-radius: 20px;
-}
-
-.img-performance .tag-performance {
-  bottom: -65px;
-  right: -15px;
-  min-width: 125px;
-  min-height: 125px;
-}
-
-  /* ============================== Footer =============================== */
-
-  .site-footer {
-    padding: 1rem;
-  }
-
-  .footer-top-r {
-    flex-direction: column;
   }
 
 }
