@@ -162,15 +162,6 @@ section {
 
 /* el activo ya viene subrayado */
 
-/* --- Efecto global del nav: atenúa los demás al hover --- */
-.nav-links:hover a {
-  opacity: 0.5;
-}
-
-.nav-links:hover a:hover {
-  opacity: 1;
-}
-
 /* --- Botón MÁS INFO: brillo que cruza + elevación --- */
 .nav-btn {
   color: #fff;
@@ -481,7 +472,7 @@ section {
   color: var(--amarillo);
 }
 
-/* EMPEZANDO CARDS VITALITY ----------------------- */
+/* ========================= EMPEZANDO CARDS VITALITY ================================ */
 
 .flex-vitality {
   width: 100%;
@@ -575,12 +566,12 @@ section {
   line-height: 1.1em;
 }
 
-/*=============== FLEX INSTAGRAM ========================== */
+/*=========================================== FLEX INSTAGRAM ========================== */
 
 .flex-instagram {
   display: flex;
   gap: 1.5rem;
-  align-items: stretch;
+  align-items: center;
   flex-wrap: wrap;
   padding: 5em;
 }
@@ -1370,7 +1361,7 @@ section {
 
   /* --- Vitality --- */
   .flex-vitality {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 3rem 1rem;
   }
 
   .title-vitality {
@@ -1384,7 +1375,7 @@ section {
 
   /* --- Instagram --- */
   .flex-instagram {
-    padding: 1em;
+    padding: 2em 1em 3em 1em;
     gap: 5em;
     flex-direction: column;
   }
