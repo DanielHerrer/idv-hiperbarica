@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initNav();
   initInstagramLoader();
+  initWhatsApp();
   document.querySelectorAll(".ticker").forEach((t) => initTicker(t));
 });
 
@@ -75,7 +76,34 @@ function initInstagramLoader() {
 }
 
 /* ------------------------------------------------------------
-   3. Ticker de novedades
+   3. Widget flotante de WhatsApp
+   Abre / cierra el popup de chat.
+   ------------------------------------------------------------ */
+function initWhatsApp() {
+  const widget = document.querySelector(".wa-widget");
+  if (!widget) return;
+
+  const fab = widget.querySelector(".wa-fab");
+  const closeBtn = widget.querySelector(".wa-popup-close");
+  const popup = widget.querySelector(".wa-popup");
+
+  const setEstado = (abierto) => {
+    widget.classList.toggle("abierto", abierto);
+    fab?.setAttribute("aria-expanded", String(abierto));
+    popup?.setAttribute("aria-hidden", String(!abierto));
+  };
+
+  fab?.addEventListener("click", () => setEstado(true));
+  closeBtn?.addEventListener("click", () => setEstado(false));
+
+  // Cerrar con la tecla Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setEstado(false);
+  });
+}
+
+/* ------------------------------------------------------------
+   4. Ticker de novedades
    speed = píxeles por segundo
    ------------------------------------------------------------ */
 function initTicker(ticker, speed = 70) {
