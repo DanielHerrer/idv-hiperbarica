@@ -51,9 +51,9 @@ ul {
   --azul: #2B57A8;          /* azul principal */
   --azul-claro: #9BBCFF;
   --celeste: #92c7f8;
-  --fondo-oscuro: #120A1D;  /* fondo de secciones */
+  --fondo-oscuro: #0F172A;  /* fondo de secciones */
   --amarillo: #F4C01B;      /* unifica los antiguos #F4C01B / #F4C01A */
-  --lila-texto: #C1AED3;
+  --lila-texto: #aebad3;
   --wa-verde: #25D366;      /* verde de WhatsApp */
   --wa-verde-oscuro: #20bd5a;
 }
@@ -220,7 +220,7 @@ section {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* EMPEZANDO HOME ------------------*/
+/* ================================================== EMPEZANDO HOME ==================================================================*/
 
 .flex-home {
   width: 100%;
@@ -236,8 +236,8 @@ section {
   gap: 5rem;
 
   background-image:
-    radial-gradient(circle at 10% 30%, rgba(153, 1, 255, 0.4), transparent 25%),
-    radial-gradient(circle at 95% 55%, rgba(153, 1, 255, 0.4), transparent 20%);
+    radial-gradient(circle at 10% 30%, rgba(74, 174, 255, 0.4), transparent 25%),
+    radial-gradient(circle at 95% 55%, rgba(74, 174, 255, 0.4), transparent 20%);
 }
 
 .info-home {
@@ -258,7 +258,7 @@ section {
 
 .title-info {
   font-size: 4rem;
-  line-height: 3.5rem;
+  line-height: 4rem;
   font-family: "Anybody", sans-serif;
 }
 
@@ -365,13 +365,13 @@ section {
   0%,
   100% {
     box-shadow:
-      0 0 5px rgb(0, 204, 255),
-      0 0 15px rgb(0, 204, 255),
-      0 0 30px rgb(0, 204, 255);
+      0 0 5px rgb(0, 162, 255),
+      0 0 15px rgb(0, 162, 255),
+      0 0 30px rgb(0, 162, 255);
   }
 
   50% {
-    box-shadow: 0 0 2px rgb(0, 204, 255);
+    box-shadow: 0 0 2px rgb(0, 162, 255);
   }
 }
 
@@ -387,7 +387,7 @@ section {
   justify-content: center;
   gap: 1rem;
   position: absolute;
-  background-color: rgba(42, 13, 70, 0.8);
+  background-color: #0f172ae0;
   border: 1px solid rgb(208, 236, 255);
   border-radius: 10px;
   bottom: 15px;
@@ -410,7 +410,7 @@ section {
 
 .icon-tag1 {
   font-size: 1.5rem;
-  color: var(--amarillo);
+  color: rgb(74, 174, 255);
 }
 
 .info-tag1 {
@@ -424,7 +424,7 @@ section {
   font-family: "Anybody", sans-serif;
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--amarillo);
+  color: rgb(74, 174, 255);
 }
 
 .img-tag2 {
@@ -433,7 +433,7 @@ section {
   justify-content: center;
   gap: 1rem;
   position: absolute;
-  background-color: rgba(42, 13, 70, 0.8);
+  background-color: #0f172ae0;
   border: 1px solid rgb(208, 236, 255);
   border-radius: 10px;
   top: 15px;
@@ -456,7 +456,7 @@ section {
 
 .icon-tag2 {
   font-size: 1.5rem;
-  color: var(--amarillo);
+  color: rgb(74, 174, 255);
 }
 
 .info-tag2 {
@@ -469,10 +469,10 @@ section {
   font-family: "Anybody", sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--amarillo);
+  color: rgb(74, 174, 255);
 }
 
-/* ========================= EMPEZANDO CARDS VITALITY ================================ */
+/* ====================================================== EMPEZANDO CARDS VITALITY ==================================================== */
 
 .flex-vitality {
   width: 100%;
@@ -499,10 +499,11 @@ section {
 }
 
 .card {
+  width: 330px;
   background-color: #152866;
   color: var(--celeste);
   padding: 1.5rem;
-  border: 1px solid #3e79e6;
+  border: 3px solid #3e79e6;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
@@ -514,52 +515,20 @@ section {
   font-size: 1.4rem;
 }
 
-.icon-card1 {
+.icon-card {
   width: fit-content;
-  background-color: #330D60;
+  background-color: rgb(74, 174, 255);
   padding: 10px;
   border-radius: 15px;
 }
 
-.icon1 {
+.icon {
   font-size: 2rem;
-  color: #BC9DE5;
+  color: var(--fondo-oscuro);
 }
 
-.title-card1 {
-  color: #BC9DE5;
-}
-
-.icon-card2 {
-  width: fit-content;
-  background-color: #4D1436;
-  padding: 10px;
-  border-radius: 15px;
-}
-
-.icon2 {
-  font-size: 2rem;
-  color: #F4AC99;
-}
-
-.title-card2 {
-  color: #F4AC99;
-}
-
-.icon-card3 {
-  width: fit-content;
-  background-color: #5D3936;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.icon3 {
-  font-size: 2rem;
-  color: var(--amarillo);
-}
-
-.title-card3 {
-  color: var(--amarillo);
+.title-card {
+  color: rgb(74, 174, 255);
 }
 
 .p-card {
@@ -690,7 +659,7 @@ section {
   color: var(--azul);
 }
 
-/* EMPEZANDO CELLULAR RECHARGE ------------------------- */
+/* ===================================================== EMPEZANDO CELLULAR RECHARGE ====================================================== */
 
 .flex-recharge {
   background-color: var(--fondo-oscuro);
@@ -718,7 +687,7 @@ section {
 .plus-recharge {
   font-family: "Anybody", sans-serif;
   text-align: end;
-  color: var(--amarillo);
+  color: rgb(74, 174, 255);
 }
 
 .grid-recharge {
@@ -739,7 +708,7 @@ section {
   position: relative;      /* ancla para la capa */
   overflow: hidden;        /* recorta el zoom que se desborda */
   border-radius: 30px;
-  border: 1px solid var(--celeste);
+  border: 1px solid rgb(74, 174, 255);
   grid-area: 1 / 1 / 7 / 5;
   height: 400px;
   color: #fff;
@@ -784,7 +753,7 @@ section {
   position: relative;      /* ancla para la capa */
   overflow: hidden;        /* recorta el zoom que se desborda */
   border-radius: 30px;
-  border: 1px solid #ff9696;
+  border: 1px solid rgb(74, 174, 255);
   grid-area: 1 / 5 / 4 / 9;
   padding: 1rem 3rem;
   display: flex;
@@ -827,7 +796,7 @@ section {
 
 .head-i i {
   font-size: 2.5rem;
-  color: #FFB59F;
+  color: rgb(74, 174, 255);
 }
 
 .head-p {
@@ -840,7 +809,7 @@ section {
   font-size: 1.75rem;
   line-height: 1.1em;
   font-weight: bold;
-  color: #FFB59F;
+  color: rgb(74, 174, 255);
 }
 
 .recharge-div2-text {
@@ -854,23 +823,23 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #C9B7DA;
+  color: var(--fondo-oscuro);
 }
 
 .recharge-div3 {
   grid-area: 4 / 5 / 7 / 7;
-  background-color: #2A0C4F;
+  background-color: rgb(74, 174, 255);
 }
 
 .recharge-div4 {
   grid-area: 4 / 7 / 7 / 9;
-  background-color: #1d0b33;
+  background-color: rgb(74, 174, 255);
 }
 
 .recharge-div3 i,
 .recharge-div4 i {
   font-size: 2rem;
-  color: var(--amarillo);
+  color: var(--fondo-oscuro);
   margin-bottom: 0.25em;
 }
 
@@ -879,7 +848,7 @@ section {
   font-family: "Anybody", sans-serif;
 }
 
-/* ===================== PEAK PERFORMANCE ==================*/
+/* ===================================================== PEAK PERFORMANCE ==============================================================*/
 
 .flex-performance {
   background-color: var(--fondo-oscuro);
@@ -887,7 +856,7 @@ section {
   padding: 2rem 1rem 6rem 1rem;
 
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(153, 1, 255, 0.2), transparent 35%);
+    radial-gradient(circle at 60% 50%, rgba(74, 174, 255, 0.4), transparent 30%);
 }
 
 .head-performance {
@@ -934,7 +903,7 @@ section {
 }
 
 .li-num {
-  background-color: #FCB6A6;
+  background-color: rgb(74, 174, 255);
   color: #000;
   min-width: 50px;
   min-height: 50px;
@@ -956,8 +925,9 @@ section {
 
 
 .img-performance {
-  border: 9px solid #290B4E;
-  border-radius: 20px;
+  border: 2px solid rgb(74, 174, 255);
+  padding: 15px;
+  border-radius: 35px;
   width: 500px;
   position: relative;
 }
@@ -973,33 +943,34 @@ section {
   align-items: center;
   position: absolute;
   bottom: -35px;
-  right: -5px;
+  right: 0px;
   min-width: 150px;
   min-height: 150px;
-  background-color: #290b4ed5;
+  background-color: #0f172ae0;
   border-radius: 100px;
-  border: 1px solid var(--amarillo);
+  border: 3px solid rgb(74, 174, 255);
   font-family: "Anybody", sans-serif;
+
 }
 
-/* Anillo dorado giratorio */
+/* Anillo giratorio */
 .img-performance .tag-performance::before {
   content: "";
   position: absolute;
-  inset: -12px;                 /* qué tan afuera queda el aro */
+  inset: -16px;                 /* qué tan afuera queda el aro */
   border-radius: 50%;
   background: conic-gradient(
-    var(--amarillo) 0deg 90deg,
+    rgb(74, 174, 255) 0deg 90deg,
     transparent    90deg 120deg,
-    var(--amarillo) 120deg 250deg,
+    rgb(74, 174, 255) 120deg 250deg,
     transparent    250deg 270deg,
-    var(--amarillo) 270deg 285deg,
+    rgb(74, 174, 255) 270deg 285deg,
     transparent    285deg 320deg,
-    var(--amarillo) 320deg 360deg
+    rgb(74, 174, 255) 320deg 360deg
   );
   /* recorta el centro para dejar solo el aro (grosor = 5px) */
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5px), #000 calc(100% - 5px));
-          mask: radial-gradient(farthest-side, transparent calc(100% - 5px), #000 calc(100% - 5px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 8px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 8px));
   /* rápido en el medio, frena y acelera en los extremos */
   animation: spin-peak 3.5s cubic-bezier(0.9, 0.1, 0.35, 0.9) infinite;
 }
@@ -1014,12 +985,13 @@ section {
 }
 
 .tag-performance span {
-  font-size: 25px;
-  color: #E0AE1F;
+  font-size: 33px;
+  margin-bottom: -10px;
+  color: rgb(74, 174, 255);
 }
 
 .tag-performance p {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 
@@ -1383,7 +1355,7 @@ section {
 
   .title-info {
     font-size: 3rem;
-    line-height: 3rem;
+    line-height: 3.3rem;
   }
 
   .btn-main {
@@ -1436,6 +1408,10 @@ section {
   .cards-vitality {
     flex-direction: column;
     gap: 0.75rem;
+  }
+
+  .card {
+    width: 100%;
   }
 
   /* --- Instagram --- */
