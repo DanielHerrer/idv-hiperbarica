@@ -1344,8 +1344,8 @@ section {
     padding: 3rem 1.5rem;
     gap: 4rem;
     background-image:
-      radial-gradient(circle at 10% 40%, rgba(153, 1, 255, 0.4), transparent 35%),
-      radial-gradient(circle at 90% 70%, rgba(153, 1, 255, 0.4), transparent 30%);
+      radial-gradient(circle at 10% 40%, rgba(74, 174, 255, 0.4), transparent 35%),
+      radial-gradient(circle at 90% 70%, rgba(74, 174, 255, 0.4), transparent 30%);
   }
 
   .tag-info {
