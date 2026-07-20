@@ -12,8 +12,64 @@ document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initInstagramLoader();
   initWhatsApp();
+  initReveal();
   document.querySelectorAll(".ticker").forEach((t) => initTicker(t));
 });
+
+/* ------------------------------------------------------------
+   0. Reveal al hacer scroll
+   Aparición suave y escalonada de bloques. Respeta a quien
+   prefiere menos movimiento y funciona aun sin IntersectionObserver.
+   ------------------------------------------------------------ */
+function initReveal() {
+  const selectores = [
+    ".info-home > *",
+    ".title-vitality",
+    ".card",
+    ".ig-embed",
+    ".info-card",
+    ".head-recharge > *",
+    ".recharde-div",
+    ".head-performance > *",
+    ".li-performance",
+    ".img-performance",
+  ];
+  const elementos = document.querySelectorAll(selectores.join(","));
+  if (!elementos.length) return;
+
+  const sinMovimiento = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  // Sin IntersectionObserver o con movimiento reducido: se muestra todo ya
+  if (sinMovimiento || !("IntersectionObserver" in window)) {
+    elementos.forEach((el) => el.classList.add("reveal", "is-visible"));
+    return;
+  }
+
+  const obs = new IntersectionObserver(
+    (entradas, observer) => {
+      entradas.forEach((entrada) => {
+        if (!entrada.isIntersecting) return;
+        const el = entrada.target;
+        // Escalonado según posición dentro de su grupo
+        const hermanos = Array.from(el.parentElement.children).filter((n) =>
+          n.classList.contains("reveal")
+        );
+        const i = Math.max(0, hermanos.indexOf(el));
+        el.style.transitionDelay = `${Math.min(i * 90, 360)}ms`;
+        el.classList.add("is-visible");
+        observer.unobserve(el);
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  elementos.forEach((el) => {
+    el.classList.add("reveal");
+    obs.observe(el);
+  });
+}
 
 /* ------------------------------------------------------------
    1. Navegación mobile
