@@ -13,8 +13,41 @@ document.addEventListener("DOMContentLoaded", () => {
   initInstagramLoader();
   initWhatsApp();
   initReveal();
+  initFaq();
   document.querySelectorAll(".ticker").forEach((t) => initTicker(t));
 });
+
+/* ------------------------------------------------------------
+   0.b Acordeón de preguntas frecuentes (página de contacto)
+   Un ítem abierto por vez. Botones nativos = accesible por
+   teclado; se sincroniza aria-expanded para lectores de pantalla.
+   ------------------------------------------------------------ */
+function initFaq() {
+  const items = document.querySelectorAll(".faq-item");
+  if (!items.length) return;
+
+  const botones = document.querySelectorAll(".faq-q");
+
+  botones.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      const abierto = item.classList.contains("abierto");
+
+      // Cierra todos
+      items.forEach((it) => {
+        it.classList.remove("abierto");
+        const b = it.querySelector(".faq-q");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+
+      // Abre el actual si estaba cerrado (toggle)
+      if (!abierto) {
+        item.classList.add("abierto");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+}
 
 /* ------------------------------------------------------------
    0. Reveal al hacer scroll
@@ -33,6 +66,15 @@ function initReveal() {
     ".head-performance > *",
     ".li-performance",
     ".img-performance",
+    ".contact-hero > *",
+    ".sec-head",
+    ".medios-panel",
+    ".medio-card",
+    ".ubic-bar",
+    ".mapa-frame",
+    ".turnos-text",
+    ".turnos-img",
+    ".faq-item",
   ];
   const elementos = document.querySelectorAll(selectores.join(","));
   if (!elementos.length) return;
