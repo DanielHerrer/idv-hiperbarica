@@ -426,7 +426,11 @@
 
   .turnos-inner {
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 3rem;
+  }
+
+  .turnos-text {
+    flex: 1 1 0px;
   }
 
   .medios,
