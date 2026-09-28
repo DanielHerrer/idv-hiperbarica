@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initNav();
   initInstagramLoader();
+  initMapaLoader();
   initWhatsApp();
   initReveal();
   initFaq();
@@ -170,6 +171,20 @@ function initInstagramLoader() {
 
     // Red de seguridad por si el evento "load" nunca dispara
     setTimeout(ocultar, 6000);
+  });
+}
+
+/* ------------------------------------------------------------
+   Loader del mapa de contacto
+   Oculta la pantalla de carga cuando el iframe de Google Maps termina de cargar.
+   ------------------------------------------------------------ */
+function initMapaLoader() {
+  document.querySelectorAll(".mapa-frame").forEach((wrap) => {
+    const loader = wrap.querySelector(".ig-loader");
+    const iframe = wrap.querySelector("iframe");
+    if (!loader || !iframe) return;
+
+    iframe.addEventListener("load", () => loader.classList.add("oculto"), { once: true });
   });
 }
 

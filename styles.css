@@ -346,7 +346,7 @@ section {
   background-color: rgba(53, 224, 196, 0.06);
   max-width: fit-content;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.9rem;
   letter-spacing: 0.14em;
   color: var(--oxygen);
 }
@@ -375,7 +375,7 @@ section {
 }
 
 .p-info {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--text-on-dark-soft);
   max-width: 46ch;
 }
@@ -636,7 +636,7 @@ section {
 
 .p-card {
   line-height: 1.5;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
 /* ============================ INSTAGRAM (luz clínica) ============================ */
@@ -648,6 +648,14 @@ section {
   flex-wrap: wrap;
   padding: 5em;
   background: var(--clinic);
+}
+
+/* Dos posts lado a lado; se apilan cuando no entran */
+.ig-pair {
+  flex: 2 1 676px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0rem;
 }
 
 .ig-embed {
@@ -785,7 +793,7 @@ section {
 }
 
 .p-recharge {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   color: var(--text-on-dark-soft);
   line-height: 1.5;
   max-width: 65ch;
@@ -793,7 +801,7 @@ section {
 
 .plus-recharge {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   text-align: end;
   color: var(--oxygen);
   letter-spacing: 0.02em;
@@ -809,6 +817,7 @@ section {
 }
 
 .recharde-div p {
+  font-size: 1.2rem;
   line-height: 1.5;
 }
 
@@ -965,13 +974,13 @@ section {
 .recharge-div4 h3 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.255rem;
 }
 
 .recharge-div3 p,
 .recharge-div4 p {
   color: var(--text-on-dark-soft);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
 /* ============================ PEAK PERFORMANCE ============================ */
@@ -1021,7 +1030,7 @@ section {
 }
 
 .head-performance p {
-  font-size: 1.05em;
+  font-size: 1.25em;
   line-height: 1.5;
   color: var(--text-on-dark-soft);
 }
@@ -1066,6 +1075,7 @@ section {
 .li-text h2 {
   font-family: var(--font-display);
   font-weight: 700;
+  font-size: 1.6rem;
   line-height: 1.15;
   margin-bottom: 0.15rem;
 }
@@ -1073,6 +1083,7 @@ section {
 .li-text p {
   color: var(--text-on-dark-soft);
   line-height: 1.5;
+  font-size: 1.25rem;
 }
 
 .img-performance {
@@ -1583,6 +1594,11 @@ section {
     padding: 2em 1em 3em;
     gap: 5em;
     flex-direction: column;
+  }
+
+  .ig-pair {
+    flex: none;
+    width: 100%;
   }
 
   /* --- Cellular Recharge --- */
