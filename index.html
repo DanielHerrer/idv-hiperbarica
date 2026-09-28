@@ -54,7 +54,7 @@
     rel="stylesheet">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 
 <body>
@@ -183,25 +183,21 @@
 
       <section id="video" class="flex-instagram">
 
-        <!-- Posts de Instagram con pantalla de carga: lado a lado, apilados en celular -->
+        <!-- Reels propios (con link al post de Instagram): lado a lado, apilados en celular -->
         <div class="ig-pair">
-          <div class="ig-embed">
-            <div class="ig-loader">
-              <div class="ig-spinner"></div>
-              <span>Cargando publicación…</span>
-            </div>
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZ8UuaMh9OA/">
-            </blockquote>
-          </div>
+          <figure class="reel">
+            <video class="reel-video" src="videos/video_hyper1.mp4#t=0.1" muted loop playsinline controls
+              preload="metadata" aria-label="Video de la cámara hiperbárica de Hyper"></video>
+            <a class="reel-link" href="https://www.instagram.com/reel/DZ8UuaMh9OA/" target="_blank"
+              rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Ver en Instagram</a>
+          </figure>
 
-          <div class="ig-embed">
-            <div class="ig-loader">
-              <div class="ig-spinner"></div>
-              <span>Cargando publicación…</span>
-            </div>
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdZxp4HBDcC/">
-            </blockquote>
-          </div>
+          <figure class="reel">
+            <video class="reel-video" src="videos/video_hyper2.mp4#t=0.1" muted loop playsinline controls
+              preload="metadata" aria-label="Video de Hyper, Instituto de la Visión"></video>
+            <a class="reel-link" href="https://www.instagram.com/p/DdZxp4HBDcC/" target="_blank"
+              rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Ver en Instagram</a>
+          </figure>
         </div>
 
         <!-- Tarjetas informativas -->
@@ -440,10 +436,7 @@
   </div>
 
   <!-- Scripts (defer = se ejecuta tras cargar el HTML) -->
-  <script src="script.js?v=4" defer></script>
-
-  <!-- Post de Instagram -->
-  <script async src="//www.instagram.com/embed.js"></script>
+  <script src="script.js?v=5" defer></script>
 
 
 </body>

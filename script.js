@@ -2,7 +2,7 @@
    Hyper - Instituto de la Visión
    Lógica de interfaz:
      1. Navegación mobile (hamburguesa)
-     2. Loader del post de Instagram
+     2. Reels (reproducción automática en pantalla)
      3. Ticker de novedades
    ============================================================ */
 
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Web cargada ✅");
 
   initNav();
-  initInstagramLoader();
+  initReels();
   initMapaLoader();
   initWhatsApp();
   initReveal();
@@ -60,7 +60,7 @@ function initReveal() {
     ".info-home > *",
     ".title-vitality",
     ".card",
-    ".ig-embed",
+    ".reel",
     ".info-card",
     ".head-recharge > *",
     ".recharde-div",
@@ -150,28 +150,30 @@ function initNav() {
 }
 
 /* ------------------------------------------------------------
-   2. Loader del post de Instagram
-   Oculta la pantalla de carga cuando el embed inserta su iframe.
+   2. Reels
+   Se reproducen (sin sonido) solo mientras están en pantalla.
+   Con movimiento reducido no arrancan solos: quedan los controles.
    ------------------------------------------------------------ */
-function initInstagramLoader() {
-  document.querySelectorAll(".ig-embed").forEach((wrap) => {
-    const loader = wrap.querySelector(".ig-loader");
-    if (!loader) return;
+function initReels() {
+  const videos = document.querySelectorAll(".reel-video");
+  if (!videos.length || !("IntersectionObserver" in window)) return;
 
-    const ocultar = () => loader.classList.add("oculto");
+  const sinMovimiento = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  if (sinMovimiento) return;
 
-    // Vigilo el contenedor: cuando Instagram inserta su <iframe>, oculto la carga
-    const obs = new MutationObserver(() => {
-      const iframe = wrap.querySelector("iframe");
-      if (!iframe) return;
-      iframe.addEventListener("load", ocultar, { once: true });
-      obs.disconnect();
-    });
-    obs.observe(wrap, { childList: true, subtree: true });
+  const obs = new IntersectionObserver(
+    (entradas) => {
+      entradas.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) target.play().catch(() => {});
+        else target.pause();
+      });
+    },
+    { threshold: 0.5 }
+  );
 
-    // Red de seguridad por si el evento "load" nunca dispara
-    setTimeout(ocultar, 6000);
-  });
+  videos.forEach((v) => obs.observe(v));
 }
 
 /* ------------------------------------------------------------
